@@ -2,13 +2,13 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
 
-from src.graph.state import ReportState
-from src.graph.nodes import (
+from graph.state import ReportState
+from graph.nodes import (
     make_research_node,
     make_writer_node,
     make_critic_node,
 )
-from src.graph.edges import should_continue
+from graph.edges import should_continue
 
 
 def build_report_graph(llm: BaseChatModel, enable_checkpointing: bool = True):
