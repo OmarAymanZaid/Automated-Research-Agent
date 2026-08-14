@@ -21,6 +21,8 @@ class Settings(BaseSettings):
     GENERATION_DEFAULT_MAX_TOKENS: int = 200
     GENERATION_DEFAULT_TEMPERATURE: float = 0.1
 
+    # API Keys
+    GOOGLE_API_KEY: str | None = None
 
     @property
     def is_local(self) -> bool:
