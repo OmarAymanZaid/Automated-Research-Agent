@@ -8,5 +8,8 @@ python-dotenv>=1.0.0
 pydantic-settings>=2.8.1
 loguru>=0.7.0
 
+# LLM Providers
+langchain-openai>=0.2.0
+
 # Interface
 gradio>=4.0.0
