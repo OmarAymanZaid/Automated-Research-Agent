@@ -2,8 +2,8 @@ from typing import Callable
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage
 
-from src.graph.state import ReportState
-from src.graph.prompts import (
+from graph.state import ReportState
+from graph.prompts import (
     RESEARCHER_SYSTEM_PROMPT,
     WRITER_SYSTEM_PROMPT,
     CRITIC_SYSTEM_PROMPT,
@@ -24,7 +24,7 @@ def make_research_node(llm: BaseChatModel) -> Callable[[ReportState], dict]:
         
         # Return dictionary patch: operator.add appends raw_researches
         return {
-            "raw_researches": [response.content],
+            "raw_researches": [response.text],
             "messages": [AIMessage(content=f"Gathered research for topic: {state['topic']}")]
         }
     
@@ -46,7 +46,7 @@ def make_writer_node(llm: BaseChatModel) -> Callable[[ReportState], dict]:
         
         # Overwrites draft_report state key
         return {
-            "draft_report": response.content,
+            "draft_report": response.text,
             "messages": [AIMessage(content="Generated draft report.")]
         }
     
