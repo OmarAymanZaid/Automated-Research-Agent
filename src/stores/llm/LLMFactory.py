@@ -4,8 +4,8 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from loguru import logger
 
-from src.helpers.settings import Settings
-from src.enums.enums import ModelProvider
+from helpers.settings import Settings
+from enums.enums import ModelProvider
 
 class LLMProviderFactory:
 
@@ -44,7 +44,8 @@ class LLMProviderFactory:
                 model=self.config.GENERATION_MODEL_NAME,
                 temperature=temp,
                 max_tokens=tokens,
-                api_key=self.config.GOOGLE_API_KEY
+                api_key=self.config.GOOGLE_API_KEY,
+                max_retries=3,
             )
 
         logger.error(f"Unsupported LLM provider: {provider}")
