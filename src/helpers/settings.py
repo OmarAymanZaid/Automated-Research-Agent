@@ -15,6 +15,12 @@ class Settings(BaseSettings):
     ENVIRONMENT: Literal["local", "staging", "production"] = "local"
     LOG_LEVEL: str = "INFO"
 
+    # Generation Specs
+    GENERATION_PROVIDER: str = "OPENAI"
+    GENERATION_MODEL_NAME: str = "gpt-4o-mini"
+    GENERATION_DEFAULT_MAX_TOKENS: int = 200
+    GENERATION_DEFAULT_TEMPERATURE: float = 0.1
+
 
     @property
     def is_local(self) -> bool:
