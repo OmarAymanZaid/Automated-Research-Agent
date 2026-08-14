@@ -1,6 +1,6 @@
 from typing import Literal
 from langgraph.graph import END
-from src.graph.state import ReportState
+from graph.state import ReportState
 
 
 def should_continue(state: ReportState) -> Literal["research_node", "END"]:
